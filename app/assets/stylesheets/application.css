@@ -61,11 +61,11 @@ header {
 }
 
 .down-vote {
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
 }
 
 .up-vote {
-  margin-left: 0.25rem;
+  margin-left: 0.5rem;
 }
 
 .down-vote:hover {

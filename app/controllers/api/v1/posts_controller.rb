@@ -19,6 +19,14 @@ class Api::V1::PostsController < ApplicationController
 		end
 	end
 
+  def update
+    @post = Post.find(params[:id])
+    if @post.update(post_params)
+      @posts = Post.order(votes: :desc)
+      render json: { posts: @posts }
+    end
+  end
+
   private
 
 	def post_params

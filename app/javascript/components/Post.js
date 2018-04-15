@@ -13,10 +13,15 @@ const Post = props => {
 				{props.created} by {props.username}
 			</div>
 			<div className="col-12 post-votes">
-				<i className="fas fa-chevron-circle-down down-vote" />
+				<i
+					className="fas fa-chevron-circle-down down-vote"
+					onClick={props.handleDownVoteClick}
+				/>
 				{props.votes}
-				<i className="fas fa-chevron-circle-up up-vote" />
-
+				<i
+					className="fas fa-chevron-circle-up up-vote"
+					onClick={props.handleUpVoteClick}
+				/>
 			</div>
 		</div>
 	);
