@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Post from "./Post";
+import PostForm from "./PostForm";
 import moment from "moment";
 
 class Posts extends Component {
@@ -48,19 +49,8 @@ class Posts extends Component {
 			);
 		});
 		return (
-			<div className="container">
-				<header>
-					<div className="grid-middle">
-						<div className="col-6 logo">
-							<i className="fab fa-reddit" />
-						</div>
-						<div className="col-6 user">Sign up</div>
-					</div>
-				</header>
-				<div className="grid">
-					<div className="col-3">LEFT NAVIGATION</div>
-					<div className="col-9 grid">{allPosts}</div>
-				</div>
+			<div className="grid">
+				<div className="col-12 grid">{allPosts}</div>
 			</div>
 		);
 	}

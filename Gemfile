@@ -53,3 +53,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'webpacker'
 gem 'react-rails'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'

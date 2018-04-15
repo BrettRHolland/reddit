@@ -25,8 +25,7 @@ a {
 }
 
 header {
-  margin: 0 0 3rem;
-  padding: 1.25rem 0;
+  margin: 1rem 0 3rem;
 }
 
 .container {
@@ -43,7 +42,6 @@ header {
   font-size: 1.25rem;
   font-weight: 700;
   padding-bottom: 0.5rem;
-  text-transform: uppercase;
 }
 
 .post-title a {
@@ -60,16 +58,23 @@ header {
 
 .post-votes {
   color: #ced4da;
-  text-align: right;
+}
+
+.down-vote {
+  margin-right: 0.25rem;
+}
+
+.up-vote {
+  margin-left: 0.25rem;
 }
 
 .down-vote:hover {
-  color: #ffe3e3;
+  color: #ff8787;
   cursor: pointer;
 }
 
 .up-vote:hover {
-  color: #d3f9d8;
+  color: #69db7c;
   cursor: pointer;
 }
 
@@ -80,7 +85,58 @@ header {
   font-size: 3rem;
 }
 
-.user {
+.logo:hover {
+  color: #1c7ed6;
+}
+
+.new-post {
   color: #868e96;
   text-align: right;
+}
+
+button {
+  background: #228be6;
+  border: 0;
+  border-radius: 0.175rem;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 1px 0 0 0;
+  outline: 0;
+  padding: 0 1rem;
+  position: relative;
+  vertical-align: top;
+}
+
+button:hover {
+  background: #1c7ed6;
+}
+
+button i {
+  border-right: 1px solid #1971c2;
+  margin-right: 1rem;
+  padding: 0.75rem 1rem 0.75rem 0;
+}
+
+/* Form */
+label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+input {
+  border: 1px solid #adb5bd;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+textarea {
+  border: 1px solid #adb5bd;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  min-height: 5rem;
+  padding: 0.5rem;
+  width: 100%;
 }

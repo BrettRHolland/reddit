@@ -9,12 +9,14 @@ const Post = props => {
 					{props.title}
 				</a>
 			</div>
-			<div className="col-10 post-author">
+			<div className="col-12 post-author">
 				{props.created} by {props.username}
 			</div>
-			<div className="col-2 post-votes">
-				<i className="fas fa-chevron-circle-down down-vote" />{" "}
+			<div className="col-12 post-votes">
+				<i className="fas fa-chevron-circle-down down-vote" />
+				{props.votes}
 				<i className="fas fa-chevron-circle-up up-vote" />
+
 			</div>
 		</div>
 	);
