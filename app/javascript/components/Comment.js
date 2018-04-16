@@ -1,16 +1,16 @@
 import React from "react";
 import { Link } from "react-router";
 
-const Post = props => {
+const Comment = props => {
 	return (
-		<div className="col-12 grid post">
-			<div className="col-12 post-title">
-				<Link to={`/posts/${props.id}`}>{props.title}</Link>
+		<div className="col-12 grid comment">
+			<div className="col-12 comment-body">
+				{props.body}
 			</div>
-			<div className="col-12 post-author">
+			<div className="col-12 comment-author">
 				Posted {props.created} by {props.username}
 			</div>
-			<div className="col-12 post-votes">
+			<div className="col-12 comment-votes">
 				<i
 					className="fas fa-chevron-circle-down down-vote"
 					onClick={props.handleDownVoteClick}
@@ -25,4 +25,4 @@ const Post = props => {
 	);
 };
 
-export default Post;
+export default Comment;

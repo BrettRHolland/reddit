@@ -20,6 +20,18 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+p {
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
 a {
   text-decoration: none;
 }
@@ -36,6 +48,15 @@ header {
 
 .grid .post {
   margin-bottom: 1rem;
+}
+
+.grid .comment {
+  margin: 1.75rem 0 0;
+}
+
+.comment-body {
+  line-height: 1.25;
+  padding-bottom: 0.25rem;
 }
 
 .post-title {
@@ -56,7 +77,12 @@ header {
   color: #868e96;
 }
 
-.post-votes {
+.comment-author {
+  color: #868e96;
+  padding-bottom: 0.5rem;
+}
+
+.post-votes, .comment-votes {
   color: #ced4da;
 }
 
@@ -102,7 +128,7 @@ button {
   cursor: pointer;
   display: inline-block;
   font-size: 1rem;
-  margin: 1px 0 0 0;
+  margin: 0;
   outline: 0;
   padding: 0 1rem;
   position: relative;
@@ -122,21 +148,34 @@ button i {
 /* Form */
 label {
   display: block;
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0.5rem;
+}
+
+input, textarea {
+  background: #f8f9fa;
+}
+
+input:focus, textarea:focus {
+  border-color: #1c7ed6;
+  outline: 0;
 }
 input {
   border: 1px solid #adb5bd;
+  border-radius: 0.175rem;
+  color: #495057;
   font-size: 1rem;
   margin-bottom: 1.5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   width: 100%;
 }
 textarea {
   border: 1px solid #adb5bd;
+  border-radius: 0.175rem;
+  color: #495057;
   font-size: 1rem;
   margin-bottom: 1.5rem;
   min-height: 5rem;
-  padding: 0.5rem;
+  padding: 0.75rem;
   width: 100%;
 }

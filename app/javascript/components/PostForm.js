@@ -66,37 +66,41 @@ class PostForm extends Component {
 
 	render() {
 		return (
-        <form onSubmit={this.handleFormSubmit}>
-				<label>Username:</label>
-				<input
-					type="text"
-					name="username"
-					onChange={this.handleUsernameChange}
-					value={this.state.username}
-				/>
-        <label>Title:</label>
-        <input
-					type="text"
-					name="title"
-					onChange={this.handleTitleChange}
-					value={this.state.title}
-				/>
-        <label>URL:</label>
-        <input
-					type="text"
-					name="url"
-					onChange={this.handleUrlChange}
-					value={this.state.url}
-				/>
-        <label>Body:</label>
-        <textarea
-					name="body"
-					onChange={this.handleBodyChange}
-					value={this.state.body}
-				/>
-        <button type="submit">
-          <i className="fas fa-plus" />Submit
-        </button>
+			<form onSubmit={this.handleFormSubmit}>
+				<div className="grid">
+					<div className="col-12 grid">
+						<label>Username:</label>
+						<input
+							type="text"
+							name="username"
+							onChange={this.handleUsernameChange}
+							value={this.state.username}
+						/>
+						<label>Title:</label>
+						<input
+							type="text"
+							name="title"
+							onChange={this.handleTitleChange}
+							value={this.state.title}
+						/>
+						<label>URL:</label>
+						<input
+							type="text"
+							name="url"
+							onChange={this.handleUrlChange}
+							value={this.state.url}
+						/>
+						<label>Body:</label>
+						<textarea
+							name="body"
+							onChange={this.handleBodyChange}
+							value={this.state.body}
+						/>
+						<button type="submit">
+							<i className="fas fa-plus" />Submit
+						</button>
+					</div>
+				</div>
 			</form>
 		);
 	}
