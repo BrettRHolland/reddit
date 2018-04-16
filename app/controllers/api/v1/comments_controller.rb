@@ -2,18 +2,21 @@ class Api::V1::CommentsController < ApplicationController
   protect_from_forgery with: :null_session
 
   def create
-		@post = Post.new(post_params)
+		@comment = Comment.new(comment_params)
 
-		if @post.save
-			render json: { post: @post }
+		if @comment.save
+      @post = Post.find(params[:post_id])
+      @comments = Comment.where(post_id: @post.id).order(votes: :desc, created_at: :asc)
+      render json: { post: @post, comments: @comments }
 		end
 	end
 
   def update
     @comment = Comment.find(params[:id])
-    @post = Post.find(params[:post_id])
+
     if @comment.update(comment_params)
-      @comments = Comment.where(post_id: @post.id).order(votes: :desc)
+      @post = Post.find(params[:post_id])
+      @comments = Comment.where(post_id: @post.id).order(votes: :desc, created_at: :asc)
       render json: { post: @post, comments: @comments }
     end
   end

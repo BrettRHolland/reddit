@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from 'react-router';
 import moment from "moment";
 import Comment from "./Comment";
+import CommentForm from "./CommentForm";
 
 class PostShow extends React.Component {
 	constructor(props) {
@@ -13,6 +14,7 @@ class PostShow extends React.Component {
     this.handleDownVote = this.handleDownVote.bind(this);
 		this.handleUpVote = this.handleUpVote.bind(this);
 		this.handleVoteChange = this.handleVoteChange.bind(this);
+    this.addComment = this.addComment.bind(this);
 	}
 
   handleUpVote(id, votes) {
@@ -65,6 +67,34 @@ class PostShow extends React.Component {
       .catch(error => console.error(`Error in fetch: ${error.message}`));
   }
 
+  addComment(submission) {
+    fetch(`/api/v1/comments/`, {
+      credentials: "same-origin",
+      method: "POST",
+      body: JSON.stringify(submission),
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          comments: body.comments
+        });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
+
   componentDidMount() {
     let id = this.props.params.id
 		fetch(`/api/v1/posts/${id}`, { credentials: "same-origin" })
@@ -112,7 +142,7 @@ class PostShow extends React.Component {
 		});
     return (
       <div className="grid">
-      <div className="col-12">
+      <div className="col-12 post-details">
         <h1>{post.title}</h1>
         <p>{post.body}</p>
         <Link to={post.url} target="_blank"><button type="submit">
@@ -120,6 +150,9 @@ class PostShow extends React.Component {
         </button></Link>
         </div>
         {allComments}
+        <div className="col-12">
+          <CommentForm addComment = {this.addComment} post_id = {this.props.params.id} />
+        </div>
       </div>
     )
   }

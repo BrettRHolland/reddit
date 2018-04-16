@@ -4,9 +4,7 @@ import { Link } from "react-router";
 const Comment = props => {
 	return (
 		<div className="col-12 grid comment">
-			<div className="col-12 comment-body">
-				{props.body}
-			</div>
+			<div className="col-12 comment-body">{props.body}</div>
 			<div className="col-12 comment-author">
 				Posted {props.created} by {props.username}
 			</div>

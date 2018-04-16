@@ -69,6 +69,7 @@ class PostForm extends Component {
 			<form onSubmit={this.handleFormSubmit}>
 				<div className="grid">
 					<div className="col-12 grid">
+						<h1>New Post</h1>
 						<label>Username:</label>
 						<input
 							type="text"

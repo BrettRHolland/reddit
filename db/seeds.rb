@@ -9,9 +9,9 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
-  Post.create(username: Faker::Internet.user_name, title: Faker::Lorem.sentence, url: Faker::Internet.url, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 200), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
+  Post.create(username: Faker::Internet.user_name, title: Faker::Lorem.sentence, url: Faker::Internet.url, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 250), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
 end
 
-30.times do
-  Comment.create(post_id: Faker::Number.between(1, 10), username: Faker::Internet.user_name, body: Faker::Lorem.paragraph, created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
+70.times do
+  Comment.create(post_id: Faker::Number.between(1, 10), username: Faker::Internet.user_name, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 20), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
 end
