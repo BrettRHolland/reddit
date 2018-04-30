@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import 'reset';
+@import 'variables';
+@import 'gridlex';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $font-color;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+p {
+  line-height: 1.25;
+  margin-bottom: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+// Container
+.container {
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 0 1.25rem;
+}
+
+// Header
+header {
+  margin: 1rem 0 3rem;
+}
+
+.logo {
+  color: $primary-color;
+  font-size: 3rem;
+
+  &:hover {
+    color: $primary-color-dark;
+  }
+}
+
+.new-post {
+  text-align: right;
+}
+
+// Post & Comment
+.grid {
+  .post {
+    margin-bottom: 1.5rem;
+  }
+
+  .comment {
+    background-color: $color-gray-light;
+    margin: 0 0 0.175rem;
+    padding: 1.5rem;
+  }
+}
+
+.post-votes,
+.comment-votes {
+  color: $font-color-lighter;
+  padding-bottom: 0;
+}
+
+.post-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding-bottom: 0.5rem;
+
+  a {
+    color: $font-color;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+.post-author {
+  color: $font-color-lighter;
+  padding-bottom: 0.5rem;
+}
+
+.post-details {
+  margin-bottom: 2rem;
+}
+
+.comment-body {
+  line-height: 1.25;
+  padding-bottom: 0.25rem;
+}
+
+.comment-author {
+  color: $font-color-lighter;
+  padding-bottom: 0.5rem;
+}
+
+.down-vote {
+  margin-right: 0.5rem;
+
+  &:hover {
+    color: #ff8787;
+    cursor: pointer;
+  }
+}
+
+.up-vote {
+  margin-left: 0.5rem;
+
+  &:hover {
+    color: #69db7c;
+    cursor: pointer;
+  }
+}
+
+// Button
+button {
+  background: $primary-color;
+  border: 0;
+  border-radius: 0.175rem;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0;
+  outline: 0;
+  padding: 0 1rem;
+  position: relative;
+  vertical-align: top;
+
+  &:hover {
+    background: $primary-color-dark;
+  }
+
+  i {
+    border-right: 1px solid $primary-color-dark;
+    margin-right: 1rem;
+    padding: 0.75rem 1rem 0.75rem 0;
+  }
+}
+
+// Form
+
+form {
+  width: 100%;
+}
+
+.comment-form {
+  background-color: $color-gray;
+  margin-bottom: 10rem;
+  padding: 1.5rem;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+input,
+textarea {
+  border: 1px solid $color-gray-dark;
+  color: #495057;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 0.75rem;
+  width: 100%;
+
+  &:focus,
+  &:focus {
+    border-color: $primary-color;
+    outline: 0;
+  }
+}
+
+textarea {
+  min-height: 5rem;
+}

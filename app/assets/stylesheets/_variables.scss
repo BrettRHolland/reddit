@@ -1,0 +1,12 @@
+$primary-color: #228be6;
+$primary-color-dark: darken($primary-color, 5);
+
+$color-gray: #e9ecef;
+$color-gray-light: lighten($color-gray, 5);
+$color-gray-lighter: lighten($color-gray, 10);
+$color-gray-dark: darken($color-gray, 10);
+
+$font-color: #495057;
+$font-color-light: lighten($font-color, 5);
+$font-color-lighter: lighten($font-color, 35);
+$font-color-lightest: lighten($font-color, 65);

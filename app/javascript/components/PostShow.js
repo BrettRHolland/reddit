@@ -1,24 +1,24 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router';
-import moment from "moment";
-import Comment from "./Comment";
-import CommentForm from "./CommentForm";
+import moment from 'moment';
+import Comment from './Comment';
+import CommentForm from './CommentForm';
 
 class PostShow extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
+  constructor(props) {
+    super(props);
+    this.state = {
       post: {},
       comments: []
     };
     this.handleDownVote = this.handleDownVote.bind(this);
-		this.handleUpVote = this.handleUpVote.bind(this);
-		this.handleVoteChange = this.handleVoteChange.bind(this);
+    this.handleUpVote = this.handleUpVote.bind(this);
+    this.handleVoteChange = this.handleVoteChange.bind(this);
     this.addComment = this.addComment.bind(this);
-	}
+  }
 
   handleUpVote(id, votes) {
-    let post_id = this.props.params.id
+    let post_id = this.props.params.id;
     let newVoteCount = votes + 1;
     let commentId = id;
     let submission = {
@@ -30,7 +30,7 @@ class PostShow extends React.Component {
   }
 
   handleDownVote(id, votes) {
-    let post_id = this.props.params.id
+    let post_id = this.props.params.id;
     let newVoteCount = votes - 1;
     let commentId = id;
     let submission = {
@@ -43,12 +43,12 @@ class PostShow extends React.Component {
 
   handleVoteChange(submission) {
     fetch(`/api/v1/comments/${submission.id}`, {
-      credentials: "same-origin",
-      method: "PATCH",
+      credentials: 'same-origin',
+      method: 'PATCH',
       body: JSON.stringify(submission),
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       }
     })
       .then(response => {
@@ -69,12 +69,12 @@ class PostShow extends React.Component {
 
   addComment(submission) {
     fetch(`/api/v1/comments/`, {
-      credentials: "same-origin",
-      method: "POST",
+      credentials: 'same-origin',
+      method: 'POST',
       body: JSON.stringify(submission),
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
       }
     })
       .then(response => {
@@ -96,65 +96,67 @@ class PostShow extends React.Component {
   }
 
   componentDidMount() {
-    let id = this.props.params.id
-		fetch(`/api/v1/posts/${id}`, { credentials: "same-origin" })
-			.then(response => {
-				if (response.ok) {
-					return response;
-				} else {
-					let errorMessage = `${response.status} (${response.statusText})`,
-						error = new Error(errorMessage);
-					throw error;
-				}
-			})
-			.then(response => response.json())
-			.then(body => {
-				this.setState({
-					post: body.post,
+    let id = this.props.params.id;
+    fetch(`/api/v1/posts/${id}`, { credentials: 'same-origin' })
+      .then(response => {
+        if (response.ok) {
+          return response;
+        } else {
+          let errorMessage = `${response.status} (${response.statusText})`,
+            error = new Error(errorMessage);
+          throw error;
+        }
+      })
+      .then(response => response.json())
+      .then(body => {
+        this.setState({
+          post: body.post,
           comments: body.comments
-				});
-			})
-			.catch(error => console.error(`Error in fetch: ${error.message}`));
-	}
+        });
+      })
+      .catch(error => console.error(`Error in fetch: ${error.message}`));
+  }
 
-	render() {
+  render() {
     let { post, comments } = this.state;
 
-		let allComments = comments.map(comment => {
-			let handleUpVoteClick = () => {
-				this.handleUpVote(comment.id, comment.votes);
-			};
-			let handleDownVoteClick = () => {
-				this.handleDownVote(comment.id, comment.votes);
-			};
-			return (
-				<Comment
-					key={comment.id}
-					id={comment.id}
-					username={comment.username}
-					body={comment.body}
-					created={moment(comment.created_at).fromNow()}
-					votes={comment.votes}
-					handleUpVoteClick={handleUpVoteClick}
-					handleDownVoteClick={handleDownVoteClick}
-				/>
-			);
-		});
+    let allComments = comments.map(comment => {
+      let handleUpVoteClick = () => {
+        this.handleUpVote(comment.id, comment.votes);
+      };
+      let handleDownVoteClick = () => {
+        this.handleDownVote(comment.id, comment.votes);
+      };
+      return (
+        <Comment
+          key={comment.id}
+          id={comment.id}
+          username={comment.username}
+          body={comment.body}
+          created={moment(comment.created_at).fromNow()}
+          votes={comment.votes}
+          handleUpVoteClick={handleUpVoteClick}
+          handleDownVoteClick={handleDownVoteClick}
+        />
+      );
+    });
     return (
       <div className="grid">
-      <div className="col-12 post-details">
-        <h1>{post.title}</h1>
-        <p>{post.body}</p>
-        <Link to={post.url} target="_blank"><button type="submit">
-          <i className="fas fa-chevron-right" />Visit link
-        </button></Link>
+        <div className="col-12 post-details">
+          <h1>{post.title}</h1>
+          <p>{post.body}</p>
+          <Link to={post.url} target="_blank">
+            <button type="submit">
+              <i className="fas fa-chevron-right" />Visit link
+            </button>
+          </Link>
         </div>
         {allComments}
-        <div className="col-12">
-          <CommentForm addComment = {this.addComment} post_id = {this.props.params.id} />
+        <div className="col-12 comment-form">
+          <CommentForm addComment={this.addComment} post_id={this.props.params.id} />
         </div>
       </div>
-    )
+    );
   }
 }
 
