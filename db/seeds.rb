@@ -8,10 +8,10 @@ require 'faker'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-10.times do
+65.times do
   Post.create(username: Faker::Internet.user_name, title: Faker::Lorem.sentence, url: Faker::Internet.url, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 250), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
 end
 
-70.times do
-  Comment.create(post_id: Faker::Number.between(1, 10), username: Faker::Internet.user_name, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 20), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
+400.times do
+  Comment.create(post_id: Faker::Number.between(1, 65), username: Faker::Internet.user_name, body: Faker::Lorem.paragraph, votes: Faker::Number.between(1, 20), created_at: Faker::Time.between(DateTime.now - 7, DateTime.now))
 end

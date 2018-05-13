@@ -32,7 +32,7 @@ a {
 
 // Container
 .container {
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   max-width: 60rem;
   padding: 0 1.25rem;
 }
@@ -188,4 +188,20 @@ textarea {
 
 textarea {
   min-height: 5rem;
+}
+
+// Pagination
+#page-numbers {
+  margin-top: 1rem;
+  li {
+    border: 2px solid $color-gray;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 1rem;
+    padding: 0.5rem 0.75rem;
+    &.active {
+      border-color: $primary-color;
+    }
+  }
 }
